@@ -4,7 +4,7 @@
  Source Server         : zjl
  Source Server Type    : MySQL
  Source Server Version : 80022
- Source Host           : sh-cdb-3ctxo9c6.sql.tencentcdb.com:59046
+ Source Host           : localhost:3303
  Source Schema         : crm
 
  Target Server Type    : MySQL
