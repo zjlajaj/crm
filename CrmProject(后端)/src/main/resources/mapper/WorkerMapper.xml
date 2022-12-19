@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjl.mapper.WorkerMapper">
+
+    <resultMap id="BaseResultMap" type="com.zjl.pojo.Worker">
+            <id property="pkId" column="pk_id" jdbcType="INTEGER"/>
+            <result property="workName" column="work_name" jdbcType="VARCHAR"/>
+            <result property="ukWorkAccount" column="uk_work_account" jdbcType="VARCHAR"/>
+            <result property="workPwd" column="work_pwd" jdbcType="VARCHAR"/>
+            <result property="workTel" column="work_tel" jdbcType="VARCHAR"/>
+            <result property="workAddr" column="work_addr" jdbcType="VARCHAR"/>
+            <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+            <result property="gmtModified" column="gmt_modified" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <resultMap id="workBo" type="com.zjl.bo.admin.WorkerBo">
+        <id property="id" column="pk_id" jdbcType="INTEGER"/>
+        <result property="workName" column="work_name" jdbcType="VARCHAR"/>
+        <result property="workAccount" column="uk_work_account" jdbcType="VARCHAR"/>
+        <result property="workTel" column="work_tel" jdbcType="VARCHAR"/>
+        <result property="workAddr" column="work_addr" jdbcType="VARCHAR"/>
+    </resultMap>
+
+
+    <sql id="Base_Column_List">
+        pk_id,work_name,uk_work_account,
+        work_pwd,work_tel,work_addr,
+        gmt_create,gmt_modified
+    </sql>
+    <select id="selectWorkerBo" resultMap="workBo">
+        select pk_id,work_name,uk_work_account,work_tel,work_addr from worker
+    </select>
+
+</mapper>

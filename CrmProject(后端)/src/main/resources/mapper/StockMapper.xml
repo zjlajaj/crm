@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjl.mapper.StockMapper">
+
+    <resultMap id="BaseResultMap" type="com.zjl.pojo.Stock">
+            <id property="pkId" column="pk_id" jdbcType="INTEGER"/>
+            <result property="stockUnit" column="stock_unit" jdbcType="VARCHAR"/>
+            <result property="stockName" column="stock_name" jdbcType="VARCHAR"/>
+            <result property="stockPrice" column="stock_price" jdbcType="DECIMAL"/>
+            <result property="stockOut" column="stock_out" jdbcType="DECIMAL"/>
+            <result property="stockLeft" column="stock_left" jdbcType="DECIMAL"/>
+            <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+            <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <resultMap id="stockBo" type="com.zjl.bo.stock.StockBo">
+        <id property="id" column="pk_id" jdbcType="INTEGER"/>
+        <result property="stockUnit" column="stock_unit" jdbcType="VARCHAR"/>
+        <result property="stockName" column="stock_name" jdbcType="VARCHAR"/>
+        <result property="stockPrice" column="stock_price" jdbcType="DECIMAL"/>
+        <result property="stockOut" column="stock_out" jdbcType="DECIMAL"/>
+        <result property="stockLeft" column="stock_left" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <resultMap id="SaleInfo" type="com.zjl.bo.statistic.SaleInfo">
+        <result property="name" column="stock_name" jdbcType="VARCHAR"/>
+        <result property="count" column="stock_out" jdbcType="DECIMAL"/>
+        <result property="unit" column="stock_unit" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        pk_id,stock_unit,stock_name,
+        stock_price,stock_out,stock_left,
+        gmt_create,gmt_modified
+    </sql>
+    <select id="selectStockBo" resultMap="stockBo">
+        select pk_id,stock_unit,stock_name,stock_price,stock_out,stock_left from stock
+    </select>
+
+    <select id="selectSaleInfo" resultMap="SaleInfo">
+        select stock_name,stock_out,stock_unit
+        from stock
+    </select>
+</mapper>

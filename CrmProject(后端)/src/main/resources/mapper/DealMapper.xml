@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjl.mapper.DealMapper">
+
+    <resultMap id="BaseResultMap" type="com.zjl.pojo.Deal">
+        <id property="pkId" column="pk_id" jdbcType="INTEGER"/>
+        <result property="dealName" column="deal_name" jdbcType="VARCHAR"/>
+        <result property="dealCustom" column="deal_custom" jdbcType="VARCHAR"/>
+        <result property="dealPeople" column="deal_people" jdbcType="VARCHAR"/>
+        <result property="dealAddr" column="deal_addr" jdbcType="VARCHAR"/>
+        <result property="dealTel" column="deal_tel" jdbcType="VARCHAR"/>
+        <result property="dealTime" column="deal_time" jdbcType="TIMESTAMP"/>
+        <result property="dealWorker" column="deal_worker" jdbcType="VARCHAR"/>
+        <result property="dealStock" column="deal_stock" jdbcType="VARCHAR"/>
+        <result property="dealNum" column="deal_num" jdbcType="DECIMAL"/>
+        <result property="dealUnit" column="deal_unit" jdbcType="VARCHAR"/>
+        <result property="dealDetail" column="deal_detail" jdbcType="VARCHAR"/>
+        <result property="dealState" column="deal_state" jdbcType="CHAR"/>
+        <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+        <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <resultMap id="dealBo" type="com.zjl.bo.deal.DealBo">
+        <id property="pkId" column="pk_id" jdbcType="INTEGER"/>
+        <result property="dealName" column="deal_name" jdbcType="VARCHAR"/>
+        <result property="dealCustom" column="deal_custom" jdbcType="VARCHAR"/>
+        <result property="dealPeople" column="deal_people" jdbcType="VARCHAR"/>
+        <result property="dealAddr" column="deal_addr" jdbcType="VARCHAR"/>
+        <result property="dealTel" column="deal_tel" jdbcType="VARCHAR"/>
+        <result property="dealTime" column="deal_time" jdbcType="TIMESTAMP"/>
+        <result property="dealWorker" column="deal_worker" jdbcType="VARCHAR"/>
+        <result property="dealStock" column="deal_stock" jdbcType="VARCHAR"/>
+        <result property="dealNum" column="deal_num" jdbcType="DECIMAL"/>
+        <result property="dealUnit" column="deal_unit" jdbcType="VARCHAR"/>
+        <result property="dealDetail" column="deal_detail" jdbcType="VARCHAR"/>
+        <result property="dealState" column="deal_state" jdbcType="CHAR"/>
+    </resultMap>
+    <resultMap id="achievementInfo" type="com.zjl.bo.statistic.Info">
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="count" column="num" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        pk_id
+        ,deal_name,deal_custom,
+        deal_people,deal_addr,deal_tel,
+        deal_time,deal_worker,deal_stock,
+        deal_num,deal_unit,deal_detail,
+        deal_state,gmt_create,gmt_modified
+    </sql>
+    <select id="selectDealBo" resultMap="dealBo">
+        select pk_id,
+               deal_name,
+               deal_custom,
+               deal_people,
+               deal_addr,
+               deal_tel,
+               deal_time,
+               deal_worker,
+               deal_stock,
+               deal_num,
+               deal_unit,
+               deal_detail,
+               deal_state
+        from deal
+    </select>
+    <select id="selectAll" resultMap="dealBo">
+        select pk_id,
+               deal_name,
+               deal_custom,
+               deal_people,
+               deal_addr,
+               deal_tel,
+               deal_time,
+               deal_worker,
+               deal_stock,
+               deal_num,
+               deal_unit,
+               deal_detail,
+               deal_state
+        from deal
+    </select>
+    <select id="selectAchievement" resultMap="achievementInfo">
+        select deal_worker as name, count(*) as num
+        from deal
+        group by deal_worker
+    </select>
+</mapper>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjl.mapper.CustomMapper">
+
+    <resultMap id="BaseResultMap" type="com.zjl.pojo.Custom">
+        <id property="pkId" column="pk_id" jdbcType="INTEGER"/>
+        <result property="customName" column="custom_name" jdbcType="VARCHAR"/>
+        <result property="customFrom" column="custom_from" jdbcType="VARCHAR"/>
+        <result property="customWork" column="custom_work" jdbcType="VARCHAR"/>
+        <result property="customTel" column="custom_tel" jdbcType="VARCHAR"/>
+        <result property="customEmail" column="custom_email" jdbcType="VARCHAR"/>
+        <result property="customAddr" column="custom_addr" jdbcType="VARCHAR"/>
+        <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+        <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <resultMap id="customBo" type="com.zjl.bo.custom.CustomBo">
+        <id property="pkId" column="pk_id" jdbcType="INTEGER"/>
+        <result property="customName" column="custom_name" jdbcType="VARCHAR"/>
+        <result property="customFrom" column="custom_from" jdbcType="VARCHAR"/>
+        <result property="customWork" column="custom_work" jdbcType="VARCHAR"/>
+        <result property="customTel" column="custom_tel" jdbcType="VARCHAR"/>
+        <result property="customEmail" column="custom_email" jdbcType="VARCHAR"/>
+        <result property="customAddr" column="custom_addr" jdbcType="VARCHAR"/>
+    </resultMap>
+    <resultMap id="fromInfo" type="com.zjl.bo.statistic.Info">
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="count" column="num" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        pk_id
+        ,custom_name,custom_from,
+        custom_work,custom_tel,custom_email,
+        custom_addr,gmt_create,gmt_modified
+    </sql>
+
+    <select id="selectCustomBo" resultMap="customBo">
+        select pk_id, custom_name, custom_from, custom_work, custom_tel, custom_email, custom_addr
+        from custom
+    </select>
+
+    <select id="vagueCustomBo" resultMap="customBo" parameterType="String">
+        select pk_id, custom_name, custom_from, custom_work, custom_tel, custom_email, custom_addr
+        from custom ${ew.customSqlSegment}
+    </select>
+
+
+    <select id="selectFromInfo" resultMap="fromInfo">
+        select custom_from as name, count(*) as num
+        from custom
+        group by custom_from
+    </select>
+
+    <select id="selectIndustryInfo" resultMap="fromInfo">
+        select custom_work as name, count(*) as num
+        from custom
+        group by custom_work
+    </select>
+</mapper>

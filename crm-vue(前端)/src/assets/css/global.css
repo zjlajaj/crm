@@ -1,0 +1,103 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "微软雅黑";
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+.commit-button{
+  margin-left: 13%;
+  width: 300px;
+}
+.add-button{
+  margin-bottom: 10px;
+}
+.data-picker-button{
+  margin-left: 50px;
+}
+.demonstration{
+  display: inline-block;
+  padding-left: 50px;
+}
+.header-title{
+
+  color: white;
+}
+.data-picker-container{
+  width: 1200px;
+}
+.header{
+  background-color: #545c64;
+}
+.el-header{
+  background-color: #545c64;
+}
+.el-menu-item.is-active, .el-menu-item:focus, .el-menu-item:hover {
+  
+  font-weight: Bold;
+
+  outline: 0;
+
+}
+.info-title{
+  padding-left: 20px;
+
+  color: #215fdb;
+  font-size: 16px;
+  font-weight: 700;
+}
+.el-menu {
+  border-right: none;
+}
+button{
+  margin: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  outline: none;
+  }
+  .welcome-button:hover{
+    background-color: #80b3f5;
+  }
+.welcome-button{
+  font-size: 16px;
+  background-color: #006eff;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border-radius: 4px;
+  color: #FFFFFF;
+  height: 8%;
+  width: 46%;
+  line-height: 22px;
+}
+.welcome-input{
+  color: #71747a;
+  padding-left: 2%;
+  margin-bottom: 3%;
+  font-size: 14px;
+  text-align: left;
+  line-height: 20px;
+  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  height: 6%;
+  width: 60%;
+}
+.welcome-tip{
+  text-align: left;
+  margin-left: 20%;
+  margin-bottom: 2%;
+  font-size: 14px;
+}
+.welcome-title{
+  
+  position: relative;
+  margin-top: 20%;
+  margin-left: 40%;
+  margin-bottom: 10%;
+  font-size: 36px;
+  font-weight: Bold;
+text-align: left;
+color: #ffffff;
+line-height: 0px;
+}
