@@ -23,8 +23,8 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
   mail:
     host: smtp.qq.com
-    username: 263046851@qq.com
-    password: nhnmvihmtfrlbghf
+    username: qq号@qq.com
+    password: 授权码
     properties:
       mail:
         smtp:
